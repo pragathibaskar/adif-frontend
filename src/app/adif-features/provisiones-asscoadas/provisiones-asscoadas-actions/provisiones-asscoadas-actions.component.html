@@ -1,0 +1,29 @@
+<h6><u>{{description}}</u></h6>
+<form [formGroup]="provisionesActionForm">
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'Provisiones'}}</mat-label>
+        <input type="text" matInput [formControl]="provisiones" [matAutocomplete]="auto"
+              [attr.aria-label]="label" placeholder="Provisiones">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='contableFn($event.option.value)'>
+          <mat-option *ngFor="let contable of matchingContables$ | async" [value]="contable">
+            {{displayFn(contable)}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="hasError('provisiones', 'required')">{{'Campo obligatorio'}}</mat-error>
+        <mat-error *ngIf="hasError('provisiones', 'forbidden')">{{'Entrada incorrecta'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'Fierra'}}</mat-label>
+        <input matInput placeholder="{{'Fierra'}}" autocomplete="off" formControlName="fierra">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row justify-content-end actions">
+    <button mat-stroked-button color="basic" class="mat-stroked-button" type="button" [routerLink]="'/provisiones-asscoadas'"><span>{{'Volver'}}</span></button>
+    <button mat-raised-button color="primary" type="submit">{{'Confirmar'}}</button>
+  </div>
+</form>

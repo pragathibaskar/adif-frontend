@@ -1,0 +1,33 @@
+.container {
+    background: #f8f9fa;
+    #header {
+        min-height: 120px;
+        margin-bottom: 10px;
+        background: url(../assets/images/contract.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    #main-footer {
+        margin-top: 30px;
+        border-top: 1px solid lightgray;
+    }
+    
+    .content {
+        min-height: 400px;
+    }
+
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        background-color: #B9CDCC !important;
+    }
+
+    .procesos-group {
+        margin-top: 20px;
+        li {
+            line-height: 30px;
+            a {
+                color: black;
+            }
+        }
+    }
+}

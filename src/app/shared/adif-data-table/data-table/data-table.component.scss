@@ -1,0 +1,42 @@
+.mat-elevation-z8 {
+    box-shadow: none;
+    border: 1px solid lightgray;    
+}
+
+.mat-row:nth-child(even){
+    background-color:#f8f9fa
+}
+
+.mat-row:nth-child(odd){
+    background-color:#ffffff;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    width: 25%;
+}
+
+.mat-elevation-z8 {
+    position: relative;
+    .loading {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #fff;
+        z-index: 1;
+        opacity: 0.5;
+        .spinner-container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            background-size: 100%;
+            z-index: 2;
+        }
+    }
+}
+

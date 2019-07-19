@@ -1,0 +1,35 @@
+<h6><u>{{description}}</u></h6>
+<form [formGroup]="cierresContablesManagement" (ngSubmit)="cierresContablesManagementSubmit()" novalidate>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'Periodo Certificacion'}}</mat-label>
+        <input matInput [matDatepicker]="periodoCertificacion"
+                [min]="minDate"
+                placeholder="DD / MM / YYYY"
+                formControlName="periodo_certificacion"
+                (focus)="periodoCertificacion.open()">
+        <mat-datepicker-toggle matSuffix [for]="periodoCertificacion"></mat-datepicker-toggle>
+        <mat-datepicker #periodoCertificacion></mat-datepicker>
+        <mat-error *ngIf="hasError('periodo_certificacion', 'required')">{{'Campo obligatorio'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline">
+          <mat-label>{{'Fecha Cierre'}}</mat-label>
+          <input matInput [matDatepicker]="fechaCierre"
+                  [min]="minDate"
+                  placeholder="DD / MM / YYYY"
+                  formControlName="fecha_cierre"
+                  (focus)="fechaCierre.open()">
+          <mat-datepicker-toggle matSuffix [for]="fechaCierre"></mat-datepicker-toggle>
+          <mat-datepicker #fechaCierre></mat-datepicker>
+          <mat-error *ngIf="hasError('fecha_cierre', 'required')">{{'Campo obligatorio'}}</mat-error>
+        </mat-form-field>
+    </div>
+  </div>
+  <div class="row justify-content-end actions">
+    <button mat-stroked-button color="basic" class="mat-stroked-button" type="button" [routerLink]="'/cierres-contables'"><span>{{'Volver'}}</span></button>
+    <button mat-raised-button color="primary" type="submit">{{'Confirmar'}}</button>
+  </div>
+</form>
